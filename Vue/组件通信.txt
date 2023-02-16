@@ -1,0 +1,13 @@
+1、Props和emit
+父组件 传给 子组件 ，通过v-bind绑定，然后子组件通过 props 接收值
+子组件 穿给 父组件，通过this.$emit，传入一个自定义事件，例如this.$emit(“show”)
+然后父组件会监听这个事件，@show=”submit(form)”，接着触发submit方法
+
+2、this.$parent 和 this.$children
+子组件通过 this.$parent.message拿到父组件的数据、
+父组件通过 this.$children[0].number 拿数据，因为可能有多个子组件
+
+3、ref 和 refs
+
+4、provide 和 inject
+祖先组件中通过provider来提供变量，然后在子孙组件中通过inject来注入变量

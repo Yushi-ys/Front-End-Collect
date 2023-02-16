@@ -1,0 +1,30 @@
+cookie存储容量很小，限制为4kb，主要用途保存登录信息（是否记住密码就是用的cookie）
+
+localstorage（本地存储）主要用途有存储各种信息
+
+sessionstoage（会话存储）存储在会话当中，关掉会话窗口，数据清除
+
+(●ˇ∀ˇ●)
+
+三者的异同
+
+1、数据的生命周期
+cookie：一般由服务器生成，可以设置失效时间。如果是浏览器端生成，关闭浏览器则失效
+localstorage：除非手动清除，否则一直存在
+sessionstorage：关闭浏览器则失效
+
+2、存放数据大小
+cookie：4kb左右
+localstorage：10MB左右
+sessionstorage：没有限制
+
+3、与服务端的通信
+cookie：一般会携带在HTTP请求头中
+localstorage：不与服务器进行通信
+sessionstorage：不与服务器进行通信
+
+cookie的组成：
+    1、domain 表示可以访问该cookie的域名，当需要跨域访问cookie的时候，可以通过document.domain共享cookie
+    2、path 表示可以访问该cookie的路径
+    3、httponly 禁止调用js的document.cookie防止跨站脚本攻击（XSS）
+    4、expires 过期时间 

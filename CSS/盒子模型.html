@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 标准盒模型 */
+        
+        .box1 {
+            box-sizing: content-box;
+            width: 100px;
+            height: 100px;
+            padding: 5px;
+            margin: 5px;
+            background-color: red;
+        }
+        /* IE盒模型 */
+        /* 宽高包括了margin和padding */
+        
+        .box2 {
+            box-sizing: border-box;
+            width: 100px;
+            height: 100px;
+            padding: 5px;
+            margin: 5px;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container1 {
+            height: 200px;
+            display: flex;
+        }
+        
+        .box1 {
+            background-color: red;
+            flex-grow: 1;
+        }
+        
+        .box2 {
+            background-color: blue;
+            flex-grow: 3;
+        }
+        
+        .container2 {
+            height: 200px;
+            width: 1000px;
+            display: flex;
+        }
+        
+        .box3 {
+            width: 400px;
+            background-color: red;
+            flex-shrink: 1;
+        }
+        
+        .box4 {
+            width: 800px;
+            background-color: blue;
+            flex-shrink: 3;
+        }
+        
+        .container3 {
+            height: 200px;
+            width: 1000px;
+            display: flex;
+            background-color: yellow;
+        }
+        
+        .box5 {
+            background-color: red;
+            flex-basis: 20%;
+        }
+        
+        .box6 {
+            background-color: blue;
+            flex-basis: 40%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- flex-grow：按照比例划分, 平分剩余空间 -->
+    <div class="container1">
+        <div class="box1"></div>
+        <div class="box2"></div>
+    </div>
+    <!-- flex-shrink：默认宽度之和大于容器时发生收缩 -->
+    <div class="container2">
+        <div class="box3"></div>
+        <div class="box4"></div>
+    </div>
+    <!-- flex-basis 指定了 flex 元素在主轴方向上的初始大小，默认为 auto -->
+    <div class="container3">
+        <div class="box5"></div>
+        <div class="box6"></div>
+    </div>
+    <script>
+        // flex: 1 === flex: 1 1 0%
+    </script>
+</body>
+
+</html>

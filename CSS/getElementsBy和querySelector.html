@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <script>
+        let a = document.getElementsByTagName("div");
+        let b = document.querySelectorAll("div"); //元素集合，并且是静态的
+        console.log(a); //HTMLCollection(5) [div, div, div, div, div]
+        console.log(b); //NodeList(5) [div, div, div, div, div]
+        a[0].remove();
+        console.log(a); //HTMLCollection(4) [div, div, div, div]
+        console.log(b); //NodeList(5) [div, div, div, div, div]
+    </script>
+</body>
+
+</html>

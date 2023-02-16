@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .triangle1 {
+            width: 0px;
+            border: 100px solid transparent;
+            border-bottom: 100px solid blue;
+        }
+        
+        .triangle2 {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            clip-path: polygon(0% 0%, 100% 0%, 50% 50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="triangle1"></div><br>
+    <div class="triangle2"></div>
+</body>
+
+</html>

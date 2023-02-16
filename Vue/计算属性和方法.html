@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <p>Original message: "{{ message }}"</p>
+    <p>Computed reversed message: "{{ reversedMessage }}"</p>
+    <p>Methods reversed message: "{{ reversed_Message() }}"</p>
+    <!-- 计算属性是基于它们的响应式依赖进行缓存
+        只要 message 还没有发生改变，多次访问 reversedMessage 计算属性会立即返回之前的计算结果，而不必再次执行函数 -->
+    <!-- 如果使用方法，那么每次页面重新渲染，方法总会再次执行函数 -->
+  </div>
+  <script>
+    let app = new Vue({
+      el: "#app",
+      data: {
+        message: 'Hello'
+      },
+      computed: {
+        reversedMessage: function () {
+          console.log('computed');
+          return this.message.split('').reverse().join('')
+        }
+      },
+      methods: {
+        reversed_Message: function () {
+          console.log('methods');
+          return this.message.split('').reverse().join('')
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

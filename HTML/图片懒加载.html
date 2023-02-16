@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        div {
+            height: 25vh;
+            width: 100px;
+            background-color: blue;
+            margin-bottom: 10px;
+        }
+        
+        img {
+            display: block;
+            width: 150px;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <img data-src="../images/img.jpg" alt="">
+    <img data-src="../images/img.jpg" alt="">
+    <img data-src="../images/img.jpg" alt="">
+    <img data-src="../images/img.jpg" alt="">
+    <img data-src="../images/img.jpg" alt="">
+    <script>
+        const images = document.getElementsByTagName('img');
+        const cb = (item) => {
+            [...item].forEach((it) => {
+                if (it.isIntersecting) {
+                    const image = it.target;
+                    const dataSrc = image.getAttribute('data-src');
+                    image.setAttribute('src', dataSrc);
+                    observer.unobserve(image);
+                    console.log('scroll被触发了');
+                }
+            })
+        }
+        const observer = new IntersectionObserver(cb);
+        [...images].forEach((item) => {
+            //在每次循环的时候，通过observer实例的observer方法来观察每一个item节点
+            observer.observe(item);
+        })
+    </script>
+</body>
+
+</html>

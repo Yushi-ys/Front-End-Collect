@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            height: 100px;
+            width: 100px;
+            background-color: red;
+            display: none;
+        }
+        
+        .box2 {
+            height: 100px;
+            width: 100px;
+            background-color: blue;
+            visibility: hidden;
+        }
+        
+        .box3 {
+            height: 100px;
+            width: 100px;
+            background-color: green;
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <div onclick="alert('666')">666</div>
+    </div>123
+    <div class="box2">
+        <div onclick="alert('777')">777</div>
+    </div>123
+    <div class="box3">
+        <div onclick="alert('888')">888</div>
+    </div>123
+    <script>
+        // display:none,元素不存在与页面之上，不占用页面位置，会引起回流和重绘
+        // 子元素会被继承display:none,就算给子元素设置display:block也没有用
+        // 自身绑定事件无法触发
+
+        // visibility: hidden,元素存在于页面之上，占用页面位置，会引起重绘但不会引起回流
+        // 子元素会被继承visibility: hidden;但是可以通过设置visibility: visible来进行显示
+        // 自身绑定事件无法触发
+
+        // opacity: 0,元素存在于页面之上，占用页面位置，不会引起回流和重绘，只是降低了透明度来达到透明的效果
+        // 子元素无法被复原
+        // 自身绑定事件可以触发
+
+        // 可以用rgba来替代opacity， 因为opacity会继承父元素的 opacity 属性， 而RGBA设置的元素的后代元素不会继承不透明属性
+    </script>
+</body>
+
+</html>

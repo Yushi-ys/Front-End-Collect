@@ -1,0 +1,6 @@
+1、优化图片
+2、优化CSS，例如压缩合并CSS
+3、减少http请求
+4、使用浏览器缓存，配置ETags和Cache-Control
+5、JS放在body底部
+6、减少DOM访问

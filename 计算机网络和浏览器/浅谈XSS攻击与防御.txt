@@ -1,0 +1,3 @@
+恶意攻击者在web页面中会插入一些恶意的script代码。当用户浏览该页面的时候，那么嵌入到web页面中script代码会执行，因此会达到恶意攻击用户的目的
+
+防御：对输入(和URL参数)进行过滤，对输出进行编码、给cookie设置httponly，这样就无法通过document.cookie获得cookie

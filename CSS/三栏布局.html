@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .left1 {
+            float: left;
+            width: 200px;
+            height: 100px;
+            background-color: red;
+        }
+        
+        .right1 {
+            float: right;
+            width: 200px;
+            height: 100px;
+            background-color: blue;
+        }
+        
+        .center1 {
+            /* 1、margin */
+            /* margin-left: 200px;
+            margin-right: 200px; */
+            /* 2、BFC */
+            overflow: hidden;
+            height: 100px;
+            background-color: green;
+        }
+        
+        .container2 {
+            display: flex;
+        }
+        
+        .left2 {
+            width: 200px;
+            height: 100px;
+            background-color: aqua;
+        }
+        
+        .right2 {
+            width: 200px;
+            height: 100px;
+            background-color: orange;
+        }
+        
+        .center2 {
+            width: 200px;
+            height: 100px;
+            background-color: teal;
+            flex: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container1">
+        <div class="left1"></div>
+        <div class="right1"></div>
+        <div class="center1"></div>
+    </div>
+
+    <div class="container2">
+        <div class="left2"></div>
+        <div class="center2"></div>
+        <div class="right2"></div>
+    </div>
+    <!-- 1、left和right分别设置float：left和right，center设置margin-left和margin-right
+    2、center设置BFC
+    3、display，center设置flex：1 -->
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <p></p>
+    <script>
+        let inp = document.getElementsByTagName("input")[0];
+        let p = document.getElementsByTagName("p")[0];
+        let obj = {};
+        Object.defineProperty(obj, 'name', {
+            set(val) {
+                inp.value = val;
+                p.innerHTML = val;
+            },
+            get() {
+                return inp.value;
+            },
+        });
+        inp.addEventListener("keyup", (e) => {
+            obj.name = e.target.value;
+        })
+    </script>
+</body>
+
+</html>

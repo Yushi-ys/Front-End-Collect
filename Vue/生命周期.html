@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <span ref="span" @click="message += '1'">{{message}}</span>
+    </div>
+    <script>
+        let app = new Vue({
+            el: "#app",
+            data: {
+                message: "这是一段文字"
+            },
+            methods: {
+                show() {
+                    console.log("我是methods里的方法");
+                }
+            },
+            //组件的 props/data/methods 尚未被创建，都处于不可用状态
+            beforeCreate() {
+                console.log(this.message);
+                this.show(); //报错
+            },
+            // props/data/methods 已创建好，都处于可用的状态，但是组件的模板结构尚未生成，无法操作DOM
+            created() {
+                console.log(this.message);
+                this.show();
+                this.$refs.span.style.color = "red"; //报错
+            },
+            //将要把编译好的HTML结构渲染到浏览器当中，此时浏览器中还没有当前组件的DOM结构
+            beforeMount() {
+                this.$refs.span.style.color = "red"; //报错
+            },
+            //已经把内存中的HTML结构，成功的渲染到浏览器之中，此时的浏览器中已经包含DOM结构，可以进行DOM操作
+            mounted() {
+                this.$refs.span.style.color = "red"; //成功！！！
+            },
+            //将要根据变化过后最新的数据，重新渲染组件的模板结构
+            //触发条件：data中的数据发生修改
+            beforeUpdate() {
+                console.log("data里的数据变化了");
+            },
+            //已经根据最新的数据，完成了组件DOM结构的重新渲染
+            updated() {},
+            //将要销毁此组件，此时尚未销毁，组件还处于正常工作状态
+            beforeDestory() {},
+            //组件已经被销毁（销毁当前组件的侦听器、子组件、事件监听），此组件在浏览器中对应的DOM结构已被完全移除
+            destoryed() {
+                console.log("生命周期至此结束");
+            }
+        });
+    </script>
+</body>
+
+</html>

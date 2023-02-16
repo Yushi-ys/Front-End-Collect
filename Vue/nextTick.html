@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <span @click="change" ref="span">{{message}}</span>
+    </div>
+    <script>
+        let app = new Vue({
+            el: "#app",
+            data: {
+                message: "Vue",
+            },
+            methods: {
+                change() {
+                    this.message = "React";
+                    // 把回调函数里的代码，延迟执行，当DOM渲染完成之后再去执行
+                    this.$nextTick(() => {
+                        console.log(this.$refs.span.innerHTML);
+                    })
+                }
+            }
+        });
+        //Vue 在修改数据后，视图不会立刻更新，而是等同一事件循环中的所有数据变化完成之后，再统一进行视图更新
+        //为什么不是同步，因为当我们频繁的去改变状态值时，会频繁的导致我们的dom更新，这很显然是不行的
+        //如果被多次触发，只会被推入到任务队列中一次。在下一个tick(循环)中，Vue会执行实际的工作
+        //vue用异步队列的方式来控制 DOM 更新和 nextTick 回调先后执行，使用原生的Promise.then、MutationObserver
+        //Vue降级策略，优先采用微任务Promise和MutationObserver，其次采用宏任务setTimeout
+        //在微任务中更新队列是会比在宏任务中更新少一次UI渲染的。
+    </script>
+</body>
+
+</html>

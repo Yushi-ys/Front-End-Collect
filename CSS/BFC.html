@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 440px;
+            background-color: blue;
+            overflow: hidden;
+        }
+        
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin-right: 10px;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <script>
+        // BFC,块级格式化上下文,block formatting context,形成独立的渲染区域,内部元素的渲染不会影响外界
+        // 常见条件float,除了none、position：fixed 和 position：absolute、overflow，除了visible
+        // 应用场景 清除浮动
+
+        //为什么要清除浮动：父级元素因为子级浮动引起内部高度为0的问题
+    </script>
+</body>
+
+</html>

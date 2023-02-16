@@ -1,0 +1,4 @@
+1、用户第一次请求服务器时，服务器端会生成一个sessionid
+2、服务器将这个sessionid通过set-cookie的方式返回给客户端
+3、客户端将这个sessiond保存在自己的cookie中，当客户端再次访问服务端的时候会带上cookie
+4、服务端去检查是否存在sessionid，不存在就新建一个sessionid重复1,2的流程(这是个新用户)，如果存在就去遍历服务端的session文件，找到与这个sessionid相对应的文件，此后的请求都会交换这个 Session ID，进行有状态的会话(不断更新最新的sessionid)
