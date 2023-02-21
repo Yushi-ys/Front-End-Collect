@@ -1,7 +1,0 @@
-javascript:void(0)常用来写在a标签后来，用来阻止a标签的跳转
-
-'javascript:'后面跟的是JavaScript表达式的意思
-
-void是JavaScript中一个不常用的运算符, 传递给他的任何表达式都会返回undefined, 例如void(0)
-
-当javascript:后面的值为undefined时(例如：javascript: void(0))，浏览器就不会发生跳转

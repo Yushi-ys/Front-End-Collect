@@ -1,8 +1,0 @@
-1、clear: both
-2、BFC
-3、给父元素添加一个伪元素
-.clearfix::after{
-     content: '';
-     display: block,
-     clear: both
-}

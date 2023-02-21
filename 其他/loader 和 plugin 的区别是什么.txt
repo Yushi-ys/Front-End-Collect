@@ -1,5 +1,0 @@
-1、Loader直译为"加载器"，作用是让webpack拥有了加载和解析非JavaScript文件的能力， 仅仅只是为了打包
-2、Plugin直译为"插件"，丰富webpack本身，增强功能
-
-1、 loader运行在打包文件之前
-2、 plugins在整个编译周期都起作用
