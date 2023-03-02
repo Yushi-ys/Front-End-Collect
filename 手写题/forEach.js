@@ -1,6 +1,14 @@
+/*
+ * @Author: yushi 2540258512@qq.com
+ * @Date: 2023-03-02 22:43:40
+ * @LastEditors: yushi 2540258512@qq.com
+ * @LastEditTime: 2023-03-02 23:37:57
+ * @Description: 手写forEach
+ */
+
 /**
  * 手写forEach
- * @param {Function} fn 入参
+ * @param {Function} fn
  * @returns null
  */
 Array.prototype._forEach = function (fn) {
