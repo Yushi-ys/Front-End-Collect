@@ -1,3 +1,8 @@
+/**
+ * 手写forEach
+ * @param {Function} fn 入参
+ * @returns null
+ */
 Array.prototype._forEach = function (fn) {
   const arr = this;
   const _this = arguments[1] || window;
