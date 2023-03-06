@@ -2,9 +2,10 @@
  * @Author: yushi 2540258512@qq.com
  * @Date: 2023-03-05 14:21:03
  * @LastEditors: yushi 2540258512@qq.com
- * @LastEditTime: 2023-03-05 14:25:10
+ * @LastEditTime: 2023-03-05 22:56:18
  * @Description: Promise的api手写
  */
+
 const p1 = new Promise((resolve, reject) => {
   setTimeout(() => {
     resolve("p1 resolve");

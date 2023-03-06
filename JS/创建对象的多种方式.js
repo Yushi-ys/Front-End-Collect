@@ -2,8 +2,7 @@
  * @Author: yushi 2540258512@qq.com
  * @Date: 2023-03-02 00:04:24
  * @LastEditors: yushi 2540258512@qq.com
- * @LastEditTime: 2023-03-02 23:35:28
- * @FilePath: /Eight-Part-Essay/JS/创建对象的多种方式.js
+ * @LastEditTime: 2023-03-06 23:07:20
  * @Description: 创建对象的多种方式
  */
 /**

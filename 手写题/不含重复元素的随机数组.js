@@ -2,9 +2,10 @@
  * @Author: yushi 2540258512@qq.com
  * @Date: 2023-03-05 14:32:13
  * @LastEditors: yushi 2540258512@qq.com
- * @LastEditTime: 2023-03-05 14:40:45
+ * @LastEditTime: 2023-03-05 22:56:01
  * @Description: 生成一个不含重复元素的随机数组
  */
+
 /**
  * @param {number} minn 最小值
  * @param {number} maxn 最大值

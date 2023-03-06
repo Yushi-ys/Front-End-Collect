@@ -2,9 +2,10 @@
  * @Author: yushi 2540258512@qq.com
  * @Date: 2023-03-04 22:50:07
  * @LastEditors: yushi 2540258512@qq.com
- * @LastEditTime: 2023-03-04 22:55:32
+ * @LastEditTime: 2023-03-05 22:56:07
  * @Description: 手写flat
  */
+
 Array.prototype._flat = function () {
   const arr = this;
   let res = [];
