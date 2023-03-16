@@ -2,11 +2,9 @@
  * @Author: yushi 2540258512@qq.com
  * @Date: 2023-03-06 22:12:44
  * @LastEditors: yushi 2540258512@qq.com
- * @LastEditTime: 2023-03-06 22:31:29
+ * @LastEditTime: 2023-03-12 15:59:02
  * @Description: 使用ts实现获取数组第一项
  */
-type arr1 = ["a", "b", "c"];
-type arr2 = [3, 2, 1];
 
 type First<T extends any[]> = T extends [infer F, ...infer Rest] ? F : null;
 
