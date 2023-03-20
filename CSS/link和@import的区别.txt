@@ -1,0 +1,21 @@
+CSS的引入方式
+1、行内样式
+<div style="color: #eee"></div>
+2、嵌入样式
+<style>
+    .box {
+        height: 100px;
+    }
+</style>
+3、外部引入
+<link rel="stylesheet" href="./css.css">
+4、导入样式
+<style>
+    @import url("./css.css");
+</style>
+
+
+区别:
+1、link是一个html标签，作用不止于引入css，但是@import只能用来引入css
+2、link在引入css时，在页面加载的时候同时加载，但是@import会在网页加载完毕之后才加载，所以会导致页面加载出来时短暂的样式错乱
+3、link不存在兼容性问题，但是@import对于低版本的浏览器不支持

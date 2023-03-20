@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box1 {
+        box-sizing: content-box;
+        height: 300px;
+        width: 300px;
+        padding: 30px;
+        margin: 30px;
+        background-color: blue;
+      }
+      .box2 {
+        box-sizing: border-box;
+        height: 300px;
+        width: 300px;
+        padding: 30px;
+        margin: 30px;
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box1">
+      这是一个标准盒子模型，我的宽高不包括padding和margin。 box-sizing:
+      content-box; height: 300px; width: 300px; padding: 30px; margin: 30px;
+      background-color: blue;
+      <p>现在我的实际宽高为360px，可以量一下～</p>
+    </div>
+    <div class="box2">
+      这是一个IE盒子模型，我的宽高包括了padding和margin。 box-sizing:
+      border-box; height: 300px; width: 300px; padding: 30px; margin: 30px;
+      background-color: red;
+      <p>现在我的实际宽高依然为300px，可以量一下～</p>
+    </div>
+  </body>
+</html>

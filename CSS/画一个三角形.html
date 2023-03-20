@@ -1,0 +1,34 @@
+<!--
+ * @Author: yushi 2540258512@qq.com
+ * @Date: 2023-03-18 19:53:29
+ * @LastEditors: yushi 2540258512@qq.com
+ * @LastEditTime: 2023-03-18 20:04:11
+ * @Description: 两种方式画三角形 
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .triangle1 {
+        width: 0px;
+        border: 50px solid transparent;
+        border-bottom: 50px solid blue;
+      }
+      .triangle2 {
+        margin-top: 40px;
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        clip-path: polygon(0% 0%, 100% 0%, 50% 50%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="triangle1"></div>
+    <div class="triangle2"></div>
+  </body>
+</html>
