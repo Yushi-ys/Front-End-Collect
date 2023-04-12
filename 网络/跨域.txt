@@ -1,0 +1,24 @@
+CORS，跨域资源共享问题
+
+协议，域名，端口都要相同，其中有一个不同都会产生跨域
+
+解决办法：
+1. JSONP，实现原理：动态的插入script标签，因为script标签不存在域的限制(还有img, link)
+通过script的src属性向服务器发请求，同时把本地的一个函数传递给服务器。服务器接收到客户端的请求后，开始准备数据并返回给前端
+大白话就是：请求一段 JS 脚本，把执行这段脚本的结果当做数据
+```js
+function jsonp(req){
+  const script = document.createElement('script');
+  const url = req.url + '?callback=' + req.callback.name;
+  script.src = url;
+  document.getElementsByTagName('head')[0].appendChild(script); 
+}
+```
+缺点：只支持get方法，因为src中请求都是GET
+
+2、nginx反向代理
+原理：同源策略是浏览器的安全策略，不是HTTP协议的一部分，服务器端调用HTTP接口只是使用HTTP协议，不会执行JS脚本，不需要同源策略，也就不存在跨越问题
+
+3、CORS
+普通跨域请求：只服务端设置Access-Control-Allow-Origin即可，前端无须设置
+带cookie请求：前后端都需要设置 xhr.withCredentials = true
