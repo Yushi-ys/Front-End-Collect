@@ -7,3 +7,5 @@
 // 4.Map内置了很多属性和方法
 
 // 5.Map内置迭代器，可以通过forEach、for of、for in等方法遍历，但是Object不可以，可以通过entries、Object.keys来遍历
+
+// 6.Map在频繁增删键值的情况下表现更好，时间复杂度为O(1)
