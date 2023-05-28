@@ -6,20 +6,21 @@
  * @Description: 手写flat
  */
 
-Array.prototype._flat = function () {
-  const arr = this;
-  let res = [];
-  const flat = () => {
+Array.prototype._flat = function (deep) {
+  const _flat = (arr) => {
+    let res = [];
     arr.forEach((item) => {
-      if (Array.isArray(item)) res = res.concat(item);
+      if (Array.isArray(item)) res.push(...item);
       else res.push(item);
     });
     return res;
   };
-  return flat();
+  let ans = this;
+  for (let i = 0; i < deep; i++) ans = _flat(ans);
+  return ans;
 };
 
-const arr = [1, [2, 3], [4, 5, 6]];
+const arr = [1, [2, 3], [4, 5, 6, [9, 10]]];
 
-console.log(arr._flat());
-// [ 1, 2, 3, 4, 5, 6 ]
+console.log(arr._flat(2));
+// [ 1, 2, 3, 4, 5, 6, 9, 10 ]

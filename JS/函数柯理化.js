@@ -7,23 +7,19 @@
  */
 
 // 实现add(1)(2)(3)(4) = 10, add(1)(1, 2, 3)(2) =
-function add() {
-  const args = [...arguments];
-  const inner = function () {
+const curry = function (fn) {
+  const args = [];
+  return function curried() {
     args.push(...arguments);
-    return inner;
+    if (args.length === fn.length) return fn(...args);
+    return curried;
   };
+};
 
-  // 重写 toString 方法
-  inner.toString = function () {
-    return args.reduce((prev, item) => {
-      return prev + item;
-    }, 0);
-  };
-
-  return inner;
+function sum(a, b, c) {
+  return a + b + c;
 }
+const add = curry(sum);
 let res = add(1)(3)(5);
-// console.log(res.toString());
-// 或者
-alert(res);
+
+console.log(res); // 9
