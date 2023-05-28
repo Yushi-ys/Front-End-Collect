@@ -1,0 +1,15 @@
+1. jsx 是 JavaScript 的语法拓展
+
+核心概念：React本身其实并不强制使用 JSX, 在JSX出现之前，React是这样定义的
+class Hello extends React.Component {
+    render() {
+        return React.createElement(
+            'div',
+            null,
+            `Hello ${this.props.toWhat}`
+        )
+    }
+}
+采用 React.createElement，React需要将组件转化为虚拟DOM树，但是JSX在树结构上具有可读性强的优势
+
+如果采用模版字符串呢？不行，因为结构描述更复杂，并且语法提示更差
