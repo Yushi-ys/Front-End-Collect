@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      img {
+        width: 400px;
+        height: 400px;
+        display: block;
+        margin: 40px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <p>额</p>
+      <p>额</p>
+      <p>额</p>
+      <p>额</p>
+      <p>额</p>
+      <p>额</p>
+      <p>额</p>
+      <p>额</p>
+      <p>额</p>
+      <p>额</p>
+      <p>额</p>
+      <p>额</p>
+      <p>额</p>
+      <p>额</p>
+      <p>额</p>
+      <p>额</p>
+      <p>额</p>
+      <p>额</p>
+      <p>额</p>
+      <p>额</p>
+      <p>额</p>
+      <p>额</p>
+      <p>额</p>
+      <p>额</p>
+      <p>额</p>
+      <p>额</p>
+      <p>额</p>
+      <p>额</p>
+      <p>额</p>
+      <p>额</p>
+      <p>额</p>
+      <p>额</p>
+      <p>额</p>
+      <p>额</p>
+      <p>额</p>
+      <p>额</p>
+      <p>额</p>
+      <p>额</p>
+    </div>
+    <img data-src="../images/zhuhai.jpg" alt="" />
+    <img data-src="../images/picture.jpg" alt="" />
+    <script>
+      const images = document.getElementsByTagName("img");
+
+      // 缺点： 监听一直存在
+      const lazyImage1 = () => {
+        window.addEventListener("scroll", () => {
+          [...images].forEach((image) => {
+            const top = image.getBoundingClientRect().top;
+            if (top < window.innerHeight) {
+              const data_src = image.getAttribute("data-src");
+              image.setAttribute("src", data_src);
+              console.log("监听存在中");
+            }
+          });
+        });
+      };
+      //   lazyImage1();
+
+      // 缺点：浏览器兼容性
+      const lazyImage2 = () => {
+        const cb = (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const image = entry.target;
+              const data_src = image.getAttribute("data-src");
+              image.setAttribute("src", data_src);
+              observer.unobserve(image);
+              // 在图片被加载出来后，不再被监听
+              console.log("监听存在中");
+            }
+          });
+        };
+        const observer = new IntersectionObserver(cb);
+        [...images].forEach((image) => {
+          observer.observe(image);
+        });
+      };
+      lazyImage2();
+    </script>
+  </body>
+</html>
