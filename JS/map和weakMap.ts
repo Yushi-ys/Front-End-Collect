@@ -11,7 +11,7 @@ const weakMap = new WeakMap();
 
 const iterator = map.keys();
 console.log(iterator.next().value);
-// 可以发现, 自执行函数走完之后, 仍然可以打印 map 的 key 值, 他的引用还存在, 那么jS的垃圾回收器不会将其从内存中移除
+// 可以发现, 自执行函数走完之后, 仍然可以打印 map 的 key 值, 他的引用还存在, 那么js的垃圾回收器不会将其从内存中移除
 
 console.log(weakMap); // WeakMap { <items unknown> }
 // 首先 weakMap 的 key 必须是一个对象
