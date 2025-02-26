@@ -1,31 +1,22 @@
-const url =
-  "https://mars-dev-persistent.oss-cn-hangzhou.aliyuncs.com/mars-file/660410797238878209/91f9af2b-bf34-48c8-84f5-1648430b7ca6/1707118208382apple1.jpeg";
+const arr = [
+  "wps_endcloud=1",
+  "Hm_lvt_cb2fa0997df4ff8e739c666ee2487fd9=1738646088",
+  "userInNewLayout=true",
+  "weboffice_device_id=7e882ebdacbb47636d2634882d289f78",
+  "weboffice_cdn=21",
+  "env=prod-0",
+  "wpsua=V1BTVUEvMS4wICh3ZWIta2RvY3M6Q2hyb21lXzEzMy4wLjAuMDsgd2luZG93czpXaW5kb3dzIDEwLjA7IFlPSEJrSDRBUnktZ183blQtQ05RVVE9PTpRMmh5YjIxbElDQXhNek11TUM0d0xqQT0pIENocm9tZS8xMzMuMC4wLjA=",
+  "appcdn=volcengine-kdocs-cache.wpscdn.cn",
+  "csrf=fSrYhEG8xhfJPbj5yZzQzdatfbyrTrmb",
+  "userid=1221761607",
+  "usename=涛涛"
+]
 
-const image2Base64 = (url) =>
-  new Promise((resolve, reject) => {
-    if (!url) {
-      resolve("");
-      return;
-    }
-    const img = new Image();
-    img.crossOrigin = "anonymous";
+const map = {}
 
-    img.src = url;
-    img.onload = () => {
-      const canvas = document.createElement("canvas");
-      canvas.width = img.width;
-      canvas.height = img.height;
-      const ctx = canvas.getContext("2d");
-      ctx?.drawImage(img, 0, 0);
-      const data = canvas.toDataURL();
+arr.forEach(item => {
+  const [key, value] = item.split('=')
+  map[key] = value
+})
 
-      resolve(data);
-    };
-    img.onerror = () => {
-      reject("");
-    };
-  });
-
-image2Base64(url).then((res) => {
-  console.log(res);
-});
+console.log(map);
