@@ -1,22 +1,36 @@
-const arr = [
-  "wps_endcloud=1",
-  "Hm_lvt_cb2fa0997df4ff8e739c666ee2487fd9=1738646088",
-  "userInNewLayout=true",
-  "weboffice_device_id=7e882ebdacbb47636d2634882d289f78",
-  "weboffice_cdn=21",
-  "env=prod-0",
-  "wpsua=V1BTVUEvMS4wICh3ZWIta2RvY3M6Q2hyb21lXzEzMy4wLjAuMDsgd2luZG93czpXaW5kb3dzIDEwLjA7IFlPSEJrSDRBUnktZ183blQtQ05RVVE9PTpRMmh5YjIxbElDQXhNek11TUM0d0xqQT0pIENocm9tZS8xMzMuMC4wLjA=",
-  "appcdn=volcengine-kdocs-cache.wpscdn.cn",
-  "csrf=fSrYhEG8xhfJPbj5yZzQzdatfbyrTrmb",
-  "userid=1221761607",
-  "usename=涛涛"
-]
+const obj = {
+  name: "徐夕雯",
+  age: 25
+}
 
-const map = {}
+const proxyObj = new Proxy(obj, {
+  set(target, propName, value) {
+    console.log(`设置${propName}属性为${value}`);
+    Reflect.set(target, propName, value);
+    return true;
+  },
 
-arr.forEach(item => {
-  const [key, value] = item.split('=')
-  map[key] = value
+  get(target, propName) {
+    console.log(`获取${propName}属性`);
+    return Reflect.get(target, propName);
+  }
+
 })
 
-console.log(map);
+console.log(proxyObj.age);
+
+proxyObj.name = '涛涛'
+
+const obj2 = {
+  name: "徐夕雯",
+  get getValue() {
+    return this.name
+  }
+}
+
+const temp = { name: 123 }
+
+const val1 = obj2.name
+const val2 = Reflect.get(obj2, 'getValue', temp)
+console.log(val1);
+console.log(val2);
