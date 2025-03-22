@@ -33,3 +33,5 @@ function copy(obj) {
     return res;
 }
 var obj = copy(data);
+
+// JSON.stringify()和JSON.parse()也可以实现深拷贝，但是有一些限制，比如不能拷贝函数、正则等特殊对象。

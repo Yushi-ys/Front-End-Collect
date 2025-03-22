@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Virtual Scroll List</title>
+    <style>
+        #scroll-container {
+            position: relative;
+            overflow-y: scroll;
+            height: 600px;
+            border: 1px solid blue;
+        }
+
+        #content {
+            width: 100%;
+        }
+
+        .item {
+            height: 200px;
+            line-height: 200px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        #wrap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 600px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 显示容器 -->
+    <div id="scroll-container">
+        <!-- 使显示容器出现滚动条 -->
+        <div id="content">
+            <!-- 列表容器 -->
+            <div id="wrap"></div>
+        </div>
+    </div>
+    <script>
+        const data = Array.from({ length: 1000 }, (_, i) => `Item ${i}`);
+        const wrapHeight = 600;
+        const itemHeight = 200;
+        const container = document.getElementById("scroll-container");
+        // 使container元素出现滚动条
+        const content = document.getElementById("content");
+        content.style.height = itemHeight * data.length + "px";
+        // 列表元素容器
+        const wrap = document.getElementById("wrap");
+
+        function renderItems(startIndex, endIndex, offset, scrollTop) {
+            wrap.innerHTML = "";
+            console.log(startIndex, endIndex, offset);
+
+            for (let i = startIndex; i < endIndex; i++) {
+                const item = document.createElement("div");
+                item.className = "item";
+                item.textContent = data[i];
+                wrap.appendChild(item);
+            }
+            // 计算最大滚动距离,超过后鼠标滚轮滚动后不再滚动
+            const maxScrollTop = data.length * itemHeight - wrapHeight;
+            if (scrollTop >= maxScrollTop) {
+                // 调整列表容器位置
+                wrap.style.top = maxScrollTop - offset + "px";
+                // 让滚动条移动
+                container.scrollTop = maxScrollTop;
+            } else {
+                // 调整列表容器位置和滚动条位置
+                wrap.style.top = scrollTop - offset + "px";
+                container.scrollTop = scrollTop;
+            }
+        }
+
+        function onScroll() {
+            const scrollTop = container.scrollTop;
+            // 滚动了多少距离
+            console.log("scrolltop", scrollTop);
+
+            const start = scrollTop / itemHeight;
+            // 开始展示的项目索引
+            const startIndex = Math.floor(scrollTop / itemHeight);
+            // 结束的项目索引
+            const endIndex = Math.ceil((scrollTop + container.clientHeight) / itemHeight);
+            console.log("startIndex和endIndex", startIndex, endIndex);
+            // 是否刚好展示第一个完整项
+            const isZero = scrollTop % itemHeight === 0;
+            // 不是完整项则计算偏移量
+            const offset = isZero ? 0 : itemHeight - (Math.ceil(scrollTop / itemHeight) * itemHeight - scrollTop);
+            renderItems(startIndex, endIndex, offset, scrollTop);
+        }
+
+        container.addEventListener("scroll", onScroll);
+        // 初始渲染
+        onScroll();
+    </script>
+</body>
+
+</html>
